@@ -20,10 +20,9 @@ class LoginViewModel extends BaseViewModel
       StreamController<bool>();
 
   var loginObject = LoginObject("", "");
-  //final LoginUseCase _loginUseCase;
+  final LoginUseCase _loginUseCase;
 
-  //LoginViewModel(this._loginUseCase);
-  LoginViewModel();
+  LoginViewModel(this._loginUseCase);
 
   @override
   void dispose() {
@@ -36,7 +35,6 @@ class LoginViewModel extends BaseViewModel
   @override
   void start() {
     // TODO: implement start
-    
   }
 
   @override
@@ -64,17 +62,17 @@ class LoginViewModel extends BaseViewModel
 
   @override
   login() async {
-    // (await _loginUseCase.execute(
-    //         LoginUseCaseInput(loginObject.userName, loginObject.password)))
-    //     .fold(
-    //         (failure) => {
-    //               // left -> failure
-    //             }, (data) {
-    //   // right -> data (success)
-    //   // content
-    //   // navigate to main screen
-    //   isUserLoggedInSuccessfullyStreamController.add(true);
-    // });
+    (await _loginUseCase.execute(
+            LoginUseCaseInput(loginObject.userName, loginObject.password)))
+        .fold(
+            (failure) => {
+                  // left -> failure
+                }, (data) {
+      // right -> data (success)
+      // content
+      // navigate to main screen
+      isUserLoggedInSuccessfullyStreamController.add(true);
+    });
   }
 
   // outputs

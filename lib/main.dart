@@ -1,7 +1,10 @@
+import 'package:clean_architecture_with_mvvm/app/di.dart';
 import 'package:flutter/material.dart';
 
 import 'app/app.dart';
 
-void main() {
-  runApp( MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initAppModule();
+  runApp(MyApp());
 }

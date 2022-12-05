@@ -1,3 +1,4 @@
+import '../../app/di.dart';
 import '../../presentations/00_splash/splash_view.dart';
 import '../../presentations/01_onboarding/view/onboarding_view.dart';
 import '../../presentations/02_login/view/login_view.dart';
@@ -30,6 +31,7 @@ class RouteGenerator {
           builder: (_) => const OnBoardingView(),
         );
       case Routes.loginRoute:
+        initLoginModule();
         return MaterialPageRoute(
           builder: (_) => const LoginView(),
         );
