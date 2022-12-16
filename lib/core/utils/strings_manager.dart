@@ -14,16 +14,16 @@ class AppStrings {
   static const onBoardingSubTitle4 =
       'Tut app is an awesome flutter application using clean architecture #4';
 
-  static const String username = "username_hint";
-  static const String password = "password_hint";
+  static const String username = "Username";
+  static const String password = "Password";
   static const String usernameError = "username_error";
   static const String passwordError = "password_error";
-  static const String login = "login_button";
-  static const String forgetPassword = "forgot_password_text";
-  static const String registerText = "register_text";
-  static const String loading = "loading";
-  static const String retryAgain = "retry_again";
-  static const String ok = "ok";
+  static const String login = "Login";
+  static const String forgetPassword = "Forgot Password";
+  static const String registerText = "Register";
+  static const String loading = "Loading...";
+  static const String retryAgain = "Retry Again";
+  static const String ok = "Ok";
   static const String emailHint = 'email_hint';
   static const String invalidEmail = "email_error";
   static const String resetPassword = "reset_password";
