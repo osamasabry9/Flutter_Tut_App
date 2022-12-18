@@ -4,6 +4,8 @@ import 'package:clean_architecture_with_mvvm/presentations/000_base/base_view_mo
 
 import '../../../core/common/freezed_data_classes.dart';
 import '../../../domain/usecase/login_usecase.dart';
+import '../../0000_state_renderer/state_renderer.dart';
+import '../../0000_state_renderer/state_renderer_impl.dart';
 
 class LoginViewModel extends BaseViewModel
     with LoginViewModelInputs, LoginViewModelOutputs {
@@ -26,6 +28,7 @@ class LoginViewModel extends BaseViewModel
 
   @override
   void dispose() {
+    super.dispose();
     _userNameStreamController.close();
     _passwordStreamController.close();
     _areAllInputsValidStreamController.close();
@@ -34,7 +37,7 @@ class LoginViewModel extends BaseViewModel
 
   @override
   void start() {
-    // TODO: implement start
+    inputState.add(ContentState());
   }
 
   @override
@@ -62,14 +65,19 @@ class LoginViewModel extends BaseViewModel
 
   @override
   login() async {
+    inputState.add(
+        LoadingState(stateRendererType: StateRendererType.popupLoadingState));
     (await _loginUseCase.execute(
             LoginUseCaseInput(loginObject.userName, loginObject.password)))
         .fold(
             (failure) => {
                   // left -> failure
+                  inputState.add(ErrorState(
+                      StateRendererType.popupErrorState, failure.message))
                 }, (data) {
       // right -> data (success)
       // content
+      inputState.add(ContentState());
       // navigate to main screen
       isUserLoggedInSuccessfullyStreamController.add(true);
     });

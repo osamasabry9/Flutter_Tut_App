@@ -7,6 +7,7 @@ import '../../../core/utils/color_manager.dart';
 import '../../../core/utils/routes_manager.dart';
 import '../../../core/utils/strings_manager.dart';
 import '../../../core/utils/values_manager.dart';
+import '../../0000_state_renderer/state_renderer_impl.dart';
 import '../viewmodel/login_viewmodel.dart';
 
 class LoginView extends StatefulWidget {
@@ -17,7 +18,6 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-
   final LoginViewModel _viewModel = instance<LoginViewModel>();
 
   final TextEditingController _userNameController = TextEditingController();
@@ -47,15 +47,25 @@ class _LoginViewState extends State<LoginView> {
     _bind();
     super.initState();
   }
-   @override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.white,
-      body: _getContentWidget(),
+      body: StreamBuilder<FlowState>(
+        stream: _viewModel.outputState,
+        builder: (context, snapshot) {
+          return snapshot.data?.getScreenWidget(context, _getContentWidget(),
+                  () {
+                _viewModel.login();
+              }) ??
+              _getContentWidget();
+        },
+      ),
     );
   }
 
-    Widget _getContentWidget() {
+  Widget _getContentWidget() {
     return Container(
         padding: const EdgeInsets.only(top: AppPadding.p100),
         child: SingleChildScrollView(
@@ -159,7 +169,8 @@ class _LoginViewState extends State<LoginView> {
           ),
         ));
   }
-    @override
+
+  @override
   void dispose() {
     _viewModel.dispose();
     super.dispose();
