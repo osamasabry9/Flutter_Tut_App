@@ -1,3 +1,4 @@
+import 'package:clean_architecture_with_mvvm/data/network/requests/register_request.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../core/error/error_handler.dart';
@@ -34,7 +35,8 @@ class RepositoryImpl implements Repository {
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
     }
   }
-   @override
+
+  @override
   Future<Either<Failure, String>> forgotPassword(String email) async {
     if (await _networkInfo.isConnected) {
       try {
@@ -52,13 +54,33 @@ class RepositoryImpl implements Repository {
               response.message ?? ResponseMessage.DEFAULT));
         }
       } catch (error) {
-        return Left(ErrorHandler
-            .handle(error)
-            .failure);
+        return Left(ErrorHandler.handle(error).failure);
       }
     } else {
       // return network connection error
       // return left
+      return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, AuthenticationModel>> register(
+      RegisterRequest registerRequest) async {
+    if (await _networkInfo.isConnected) {
+      try {
+        final response = await _remoteDataSource.register(registerRequest);
+        if (response.status == ApiInternalStatus.SUCCESS) {
+          return Right(response.toDomain());
+        } else {
+          return Left(
+            Failure(ApiInternalStatus.FAILURE,
+                response.message ?? ResponseMessage.DEFAULT),
+          );
+        }
+      } catch (error) {
+        return Left(ErrorHandler.handle(error).failure);
+      }
+    } else {
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
     }
   }
