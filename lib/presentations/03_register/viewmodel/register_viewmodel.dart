@@ -87,7 +87,7 @@ class RegisterViewModel extends BaseViewModel
       // content
       inputState.add(ContentState());
       // navigate to main screen
-       isUserRegisteredInSuccessfullyStreamController.add(true);
+      isUserRegisteredInSuccessfullyStreamController.add(true);
     });
   }
 
@@ -131,7 +131,7 @@ class RegisterViewModel extends BaseViewModel
 
   @override
   setMobileNumber(String mobileNumber) {
-     inputUserName.add(mobileNumber);
+    inputUserName.add(mobileNumber);
     if (_isMobileNumberValid(mobileNumber)) {
       //  update register view object
       registerObject = registerObject.copyWith(mobileNumber: mobileNumber);
@@ -144,7 +144,7 @@ class RegisterViewModel extends BaseViewModel
 
   @override
   setPassword(String password) {
-     inputUserName.add(password);
+    inputUserName.add(password);
     if (_isPasswordValid(password)) {
       //  update register view object
       registerObject = registerObject.copyWith(password: password);
@@ -155,7 +155,7 @@ class RegisterViewModel extends BaseViewModel
     validate();
   }
 
-   @override
+  @override
   setProfilePicture(File profilePicture) {
     inputProfilePicture.add(profilePicture);
     if (profilePicture.path.isNotEmpty) {
