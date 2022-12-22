@@ -22,17 +22,18 @@ class RegisterViewModel extends BaseViewModel
       StreamController<File>.broadcast();
   StreamController areAllInputsValidStreamController =
       StreamController<void>.broadcast();
+
   StreamController isUserRegisteredInSuccessfullyStreamController =
       StreamController<bool>();
-
   final RegisterUseCase _registerUseCase;
   var registerObject = RegisterObject("", "", "", "", "", "");
 
   RegisterViewModel(this._registerUseCase);
 
+  // inputs
   @override
   void start() {
-    // TODO: implement start
+    inputState.add(ContentState());
   }
 
   @override
@@ -131,7 +132,7 @@ class RegisterViewModel extends BaseViewModel
 
   @override
   setMobileNumber(String mobileNumber) {
-    inputUserName.add(mobileNumber);
+    inputMobileNumber.add(mobileNumber);
     if (_isMobileNumberValid(mobileNumber)) {
       //  update register view object
       registerObject = registerObject.copyWith(mobileNumber: mobileNumber);
@@ -144,7 +145,7 @@ class RegisterViewModel extends BaseViewModel
 
   @override
   setPassword(String password) {
-    inputUserName.add(password);
+    inputPassword.add(password);
     if (_isPasswordValid(password)) {
       //  update register view object
       registerObject = registerObject.copyWith(password: password);
