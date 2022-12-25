@@ -1,4 +1,5 @@
 import 'package:clean_architecture_with_mvvm/data/network/requests/register_request.dart';
+import 'package:clean_architecture_with_mvvm/domain/model/home_model.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../core/error/error_handler.dart';
@@ -69,6 +70,27 @@ class RepositoryImpl implements Repository {
     if (await _networkInfo.isConnected) {
       try {
         final response = await _remoteDataSource.register(registerRequest);
+        if (response.status == ApiInternalStatus.SUCCESS) {
+          return Right(response.toDomain());
+        } else {
+          return Left(
+            Failure(ApiInternalStatus.FAILURE,
+                response.message ?? ResponseMessage.DEFAULT),
+          );
+        }
+      } catch (error) {
+        return Left(ErrorHandler.handle(error).failure);
+      }
+    } else {
+      return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, HomeObject>> getHomeData() async{
+    if (await _networkInfo.isConnected) {
+      try {
+        final response = await _remoteDataSource.getHomeData();
         if (response.status == ApiInternalStatus.SUCCESS) {
           return Right(response.toDomain());
         } else {
