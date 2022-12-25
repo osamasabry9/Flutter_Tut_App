@@ -5,7 +5,7 @@ import '../../presentations/00_splash/splash_view.dart';
 import '../../presentations/01_onboarding/view/onboarding_view.dart';
 import '../../presentations/02_login/view/login_view.dart';
 import '../../presentations/03_register/view/register_view.dart';
-import '../../presentations/05_main/view/main_view.dart';
+import '../../presentations/05_main/main_view.dart';
 import '../../presentations/06_store_details/view/store_details_view.dart';
 import 'package:flutter/material.dart';
 

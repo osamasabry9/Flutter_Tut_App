@@ -1,12 +1,12 @@
-import 'package:clean_architecture_with_mvvm/presentations/05_main/view/pages/settings_page.dart';
+import 'package:clean_architecture_with_mvvm/presentations/05_main/pages/settings/view/settings_view.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/color_manager.dart';
-import '../../../core/utils/strings_manager.dart';
-import '../../../core/utils/values_manager.dart';
-import 'pages/home_pages.dart';
-import 'pages/notifications_page.dart';
-import 'pages/search_page.dart';
+import '../../core/utils/color_manager.dart';
+import '../../core/utils/strings_manager.dart';
+import '../../core/utils/values_manager.dart';
+import 'pages/home/view/home_view.dart';
+import 'pages/notifications/view/notifications_view.dart';
+import 'pages/search/view/search_view.dart';
 
 class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);
@@ -17,10 +17,10 @@ class MainView extends StatefulWidget {
 
 class _MainViewState extends State<MainView> {
   List<Widget> pages = const [
-    HomePage(),
-    SearchPage(),
-    NotificationsPage(),
-    SettingsPage()
+    HomeView(),
+    SearchView(),
+    NotificationsView(),
+    SettingsView()
   ];
   List<String> titles = [
     AppStrings.home,
