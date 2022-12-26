@@ -36,7 +36,6 @@ class HomeViewModel extends BaseViewModel
       inputState.add(ContentState());
       inputHomeData.add(HomeViewObject(homeObject.data.stores,
           homeObject.data.services, homeObject.data.banners));
-      // navigate to main screen
     });
   }
 
