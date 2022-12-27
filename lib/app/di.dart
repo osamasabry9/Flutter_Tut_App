@@ -1,4 +1,5 @@
 import 'package:clean_architecture_with_mvvm/app/app_prefs.dart';
+import 'package:clean_architecture_with_mvvm/data/data_source/local_data_source/local_data_source.dart';
 import 'package:clean_architecture_with_mvvm/data/repository/repository_impl.dart';
 import 'package:clean_architecture_with_mvvm/domain/repository/repository.dart';
 import 'package:dio/dio.dart';
@@ -48,11 +49,14 @@ Future<void> initAppModule() async {
   // remote data source
   instance.registerLazySingleton<RemoteDataSource>(
       () => RemoteDataSourceImpl(instance<AppServiceClient>()));
-
+  // local data source
+  instance.registerLazySingleton<LocalDataSource>(
+      () => LocalDataSourceImpl());
   // repository
   instance.registerLazySingleton<Repository>(() => RepositoryImpl(
         instance<RemoteDataSource>(),
         instance<NetworkInfo>(),
+        instance<LocalDataSource>(),
       ));
 }
 

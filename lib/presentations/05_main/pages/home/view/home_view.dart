@@ -61,7 +61,6 @@ class _HomeViewState extends State<HomeView> {
               _getStoresWidget(snapshot.data?.stores),
             ],
           );
-          ;
         });
   }
 
