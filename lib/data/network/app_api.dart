@@ -25,7 +25,11 @@ abstract class AppServiceClient {
       @Field("email") String email,
       @Field("password") String password,
       @Field("profile_picture") String profilePicture);
-      
+
   @GET("/home")
   Future<HomeResponse> getHomeData();
+
+
+  @GET("/storeDetails/1")
+  Future<StoreDetailsResponse> getStoreDetails();
 }

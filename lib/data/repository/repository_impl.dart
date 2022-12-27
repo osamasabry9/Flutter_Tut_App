@@ -1,5 +1,6 @@
 import 'package:clean_architecture_with_mvvm/data/network/requests/register_request.dart';
 import 'package:clean_architecture_with_mvvm/domain/model/home_model.dart';
+import 'package:clean_architecture_with_mvvm/domain/model/store_details_model.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../core/error/error_handler.dart';
@@ -129,6 +130,32 @@ class RepositoryImpl implements Repository {
       } else {
         // return internet connection error
         // return either left
+        return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, StoreDetails>> getStoreDetails() async {
+    try {
+      // get data from cache
+      final response = await _localDataSource.getStoreDetails();
+      return Right(response.toDomain());
+    } catch (cacheError) {
+      if (await _networkInfo.isConnected) {
+        try {
+          final response = await _remoteDataSource.getStoreDetails();
+          if (response.status == ApiInternalStatus.SUCCESS) {
+            _localDataSource.saveStoreDetailsToCache(response);
+            return Right(response.toDomain());
+          } else {
+            return Left(Failure(response.status ?? ResponseCode.DEFAULT,
+                response.message ?? ResponseMessage.DEFAULT));
+          }
+        } catch (error) {
+          return Left(ErrorHandler.handle(error).failure);
+        }
+      } else {
         return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
       }
     }

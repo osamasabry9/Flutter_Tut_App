@@ -1,5 +1,6 @@
 import '../../app/constants.dart';
 import '../../domain/model/home_model.dart';
+import '../../domain/model/store_details_model.dart';
 import '../responses/responses.dart';
 import '../../domain/model/login_model.dart';
 import '../../app/extensions.dart';
@@ -97,3 +98,16 @@ extension HomeResponseMapper on HomeResponse? {
     return HomeObject(data);
   }
 }
+
+extension StoreDetailsResponseMapper on StoreDetailsResponse? {
+  StoreDetails toDomain() {
+    return StoreDetails(
+        this?.id?.orZero() ?? Constants.zero,
+        this?.title?.orEmpty() ?? Constants.empty,
+        this?.image?.orEmpty() ?? Constants.empty,
+        this?.details?.orEmpty() ?? Constants.empty,
+        this?.services?.orEmpty() ?? Constants.empty,
+        this?.about?.orEmpty() ?? Constants.empty);
+  }
+}
+
