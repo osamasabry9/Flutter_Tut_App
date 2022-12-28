@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:clean_architecture_with_mvvm/presentations/000_base/base_view_model.dart';
+import '../../000_base/base_view_model.dart';
 
 import '../../../core/common/freezed_data_classes.dart';
 import '../../../domain/usecase/login_usecase.dart';

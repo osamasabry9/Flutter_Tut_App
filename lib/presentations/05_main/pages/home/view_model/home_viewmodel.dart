@@ -1,7 +1,7 @@
 import 'dart:ffi';
 
-import 'package:clean_architecture_with_mvvm/domain/usecase/home_usecase.dart';
-import 'package:clean_architecture_with_mvvm/presentations/000_base/base_view_model.dart';
+import '../../../../../domain/usecase/home_usecase.dart';
+import '../../../../000_base/base_view_model.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../../../domain/model/home_model.dart';

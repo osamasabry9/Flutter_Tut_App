@@ -1,7 +1,7 @@
-import 'package:clean_architecture_with_mvvm/app/app_prefs.dart';
-import 'package:clean_architecture_with_mvvm/data/data_source/local_data_source/local_data_source.dart';
-import 'package:clean_architecture_with_mvvm/data/repository/repository_impl.dart';
-import 'package:clean_architecture_with_mvvm/domain/repository/repository.dart';
+import 'app_prefs.dart';
+import '../data/data_source/local_data_source/local_data_source.dart';
+import '../data/repository/repository_impl.dart';
+import '../domain/repository/repository.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:image_picker/image_picker.dart';

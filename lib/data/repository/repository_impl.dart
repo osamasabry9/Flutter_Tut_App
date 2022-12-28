@@ -1,6 +1,6 @@
-import 'package:clean_architecture_with_mvvm/data/network/requests/register_request.dart';
-import 'package:clean_architecture_with_mvvm/domain/model/home_model.dart';
-import 'package:clean_architecture_with_mvvm/domain/model/store_details_model.dart';
+import '../network/requests/register_request.dart';
+import '../../domain/model/home_model.dart';
+import '../../domain/model/store_details_model.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../core/error/error_handler.dart';

@@ -1,5 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../core/utils/language_manager.dart';
@@ -14,6 +15,7 @@ class AppPreferences {
 
   AppPreferences(this._sharedPreferences);
 
+// App Language
   Future<String> getAppLanguage() async {
     String? language = _sharedPreferences.getString(PREFS_KEY_LANG);
     if (language != null && language.isNotEmpty) {
@@ -24,7 +26,31 @@ class AppPreferences {
     }
   }
 
-   // on boarding
+  Future<void> changeAppLanguage() async {
+    String currentLang = await getAppLanguage();
+
+    if (currentLang == LanguageType.ARABIC.getValue()) {
+      // set english
+      _sharedPreferences.setString(
+          PREFS_KEY_LANG, LanguageType.ENGLISH.getValue());
+    } else {
+      // set arabic
+      _sharedPreferences.setString(
+          PREFS_KEY_LANG, LanguageType.ARABIC.getValue());
+    }
+  }
+
+  Future<Locale> getLocal() async {
+    String currentLang = await getAppLanguage();
+
+    if (currentLang == LanguageType.ARABIC.getValue()) {
+      return ARABIC_LOCAL;
+    } else {
+      return ENGLISH_LOCAL;
+    }
+  }
+
+  // on boarding
 
   Future<void> setOnBoardingScreenViewed() async {
     _sharedPreferences.setBool(PREFS_KEY_ONBOARDING_SCREEN_VIEWED, true);

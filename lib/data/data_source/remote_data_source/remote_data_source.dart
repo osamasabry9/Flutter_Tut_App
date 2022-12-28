@@ -1,6 +1,6 @@
-import 'package:clean_architecture_with_mvvm/data/network/requests/register_request.dart';
 import '../../network/app_api.dart';
 import '../../network/requests/login_request.dart';
+import '../../network/requests/register_request.dart';
 import '../../responses/responses.dart';
 
 abstract class RemoteDataSource {

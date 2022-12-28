@@ -1,6 +1,6 @@
-import 'package:clean_architecture_with_mvvm/core/error/failure.dart';
-import 'package:clean_architecture_with_mvvm/domain/model/home_model.dart';
-import 'package:clean_architecture_with_mvvm/domain/usecase/base_usecase.dart';
+import '../../core/error/failure.dart';
+import '../model/home_model.dart';
+import 'base_usecase.dart';
 import 'package:dartz/dartz.dart';
 
 import '../repository/repository.dart';

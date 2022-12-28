@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:clean_architecture_with_mvvm/presentations/000_base/base_view_model.dart';
+import '../../000_base/base_view_model.dart';
 import '../../../app/function.dart';
 import '../../../domain/usecase/forgot_password_usecase.dart';
 import '../../0000_state_renderer/state_renderer.dart';

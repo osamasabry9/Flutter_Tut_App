@@ -1,4 +1,4 @@
-import 'package:clean_architecture_with_mvvm/domain/model/store_details_model.dart';
+import '../model/store_details_model.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../core/error/failure.dart';

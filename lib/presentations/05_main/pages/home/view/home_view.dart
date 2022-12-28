@@ -1,10 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:clean_architecture_with_mvvm/core/utils/strings_manager.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../app/di.dart';
 import '../../../../../core/utils/color_manager.dart';
 import '../../../../../core/utils/routes_manager.dart';
+import '../../../../../core/utils/strings_manager.dart';
 import '../../../../../core/utils/values_manager.dart';
 import '../../../../../domain/model/home_model.dart';
 import '../../../../0000_state_renderer/state_renderer_impl.dart';
@@ -55,9 +56,9 @@ class _HomeViewState extends State<HomeView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _getBannerWidget(snapshot.data?.banners),
-              _getSection(AppStrings.services),
+              _getSection(AppStrings.services.tr()),
               _getServicesWidget(snapshot.data?.services),
-              _getSection(AppStrings.stores),
+              _getSection(AppStrings.stores.tr()),
               _getStoresWidget(snapshot.data?.stores),
             ],
           );

@@ -1,4 +1,5 @@
-import 'package:clean_architecture_with_mvvm/presentations/04_forgot_password/view/forgot_pasword.dart';
+import '../../presentations/04_forgot_password/view/forgot_pasword.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../app/di.dart';
 import '../../presentations/00_splash/splash_view.dart';
@@ -66,9 +67,15 @@ class RouteGenerator {
     return MaterialPageRoute(
       builder: (_) => Scaffold(
         appBar: AppBar(
-          title: const Text(AppStrings.onRouteFound),
+          title: Text(
+            AppStrings.noRouteFound.tr(),
+          ),
         ),
-        body: const Center(child: Text(AppStrings.onRouteFound)),
+        body: Center(
+          child: Text(
+            AppStrings.noRouteFound.tr(),
+          ),
+        ),
       ),
     );
   }

@@ -1,4 +1,5 @@
-import 'package:clean_architecture_with_mvvm/core/utils/strings_manager.dart';
+import '../../../../../core/utils/strings_manager.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class SearchView extends StatefulWidget {
@@ -11,8 +12,8 @@ class SearchView extends StatefulWidget {
 class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(AppStrings.search),
+    return  Center(
+      child: Text(AppStrings.search.tr()),
     );
   }
 }
