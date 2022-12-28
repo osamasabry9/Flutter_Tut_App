@@ -6,7 +6,7 @@ import '../../../core/utils/assets_manager.dart';
 import '../../../core/utils/color_manager.dart';
 import '../../../core/utils/strings_manager.dart';
 import '../../../core/utils/values_manager.dart';
-import '../../0000_state_renderer/state_renderer_impl.dart';
+import '../../../core/state_renderer/state_renderer_impl.dart';
 import '../viewmodel/forgot_password_viewmodel.dart';
 
 

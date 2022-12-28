@@ -2,12 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../core/utils/assets_manager.dart';
-import '../../core/utils/color_manager.dart';
-import '../../core/utils/font_manager.dart';
-import '../../core/utils/strings_manager.dart';
-import '../../core/utils/styles_manager.dart';
-import '../../core/utils/values_manager.dart';
+import '../utils/assets_manager.dart';
+import '../utils/color_manager.dart';
+import '../utils/font_manager.dart';
+import '../utils/strings_manager.dart';
+import '../utils/styles_manager.dart';
+import '../utils/values_manager.dart';
 
 enum StateRendererType {
   // POPUP STATES (DIALOG)

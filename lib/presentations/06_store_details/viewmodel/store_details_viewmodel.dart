@@ -5,8 +5,8 @@ import 'package:rxdart/rxdart.dart';
 
 import '../../../domain/model/store_details_model.dart';
 import '../../../domain/usecase/store_details_usecase.dart';
-import '../../0000_state_renderer/state_renderer.dart';
-import '../../0000_state_renderer/state_renderer_impl.dart';
+import '../../../core/state_renderer/state_renderer.dart';
+import '../../../core/state_renderer/state_renderer_impl.dart';
 import '../../000_base/base_view_model.dart';
 
 class StoreDetailsViewModel extends BaseViewModel

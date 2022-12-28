@@ -3,7 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/constants.dart';
-import '../../core/utils/strings_manager.dart';
+import '../utils/strings_manager.dart';
 
 abstract class FlowState {
   StateRendererType getStateRendererType();

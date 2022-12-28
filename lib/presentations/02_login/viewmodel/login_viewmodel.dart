@@ -4,8 +4,8 @@ import '../../000_base/base_view_model.dart';
 
 import '../../../core/common/freezed_data_classes.dart';
 import '../../../domain/usecase/login_usecase.dart';
-import '../../0000_state_renderer/state_renderer.dart';
-import '../../0000_state_renderer/state_renderer_impl.dart';
+import '../../../core/state_renderer/state_renderer.dart';
+import '../../../core/state_renderer/state_renderer_impl.dart';
 
 class LoginViewModel extends BaseViewModel
     with LoginViewModelInputs, LoginViewModelOutputs {

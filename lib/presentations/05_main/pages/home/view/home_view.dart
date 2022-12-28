@@ -8,7 +8,7 @@ import '../../../../../core/utils/routes_manager.dart';
 import '../../../../../core/utils/strings_manager.dart';
 import '../../../../../core/utils/values_manager.dart';
 import '../../../../../domain/model/home_model.dart';
-import '../../../../0000_state_renderer/state_renderer_impl.dart';
+import '../../../../../core/state_renderer/state_renderer_impl.dart';
 import '../view_model/home_viewmodel.dart';
 
 class HomeView extends StatefulWidget {

@@ -3,8 +3,8 @@ import 'dart:async';
 import '../../000_base/base_view_model.dart';
 import '../../../app/function.dart';
 import '../../../domain/usecase/forgot_password_usecase.dart';
-import '../../0000_state_renderer/state_renderer.dart';
-import '../../0000_state_renderer/state_renderer_impl.dart';
+import '../../../core/state_renderer/state_renderer.dart';
+import '../../../core/state_renderer/state_renderer_impl.dart';
 
 
 

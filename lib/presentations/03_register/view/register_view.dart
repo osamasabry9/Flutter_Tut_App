@@ -14,7 +14,7 @@ import '../../../core/utils/color_manager.dart';
 import '../../../core/utils/routes_manager.dart';
 import '../../../core/utils/strings_manager.dart';
 import '../../../core/utils/values_manager.dart';
-import '../../0000_state_renderer/state_renderer_impl.dart';
+import '../../../core/state_renderer/state_renderer_impl.dart';
 import '../viewmodel/register_viewmodel.dart';
 
 class RegisterView extends StatefulWidget {
